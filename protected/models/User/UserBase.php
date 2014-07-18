@@ -70,7 +70,7 @@ class UserBase extends CActiveRecord
 			'ID_user' => '用户id',
 			'username' => '用户名',
 			'password' => '密码',
-			'point' => '会员积分Member\'s Point',
+			'point' => '会员积分',
 			'nickname' => '昵称',
 			'profession' => '职业',
 			'sex' => '性别',

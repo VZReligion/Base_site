@@ -27,7 +27,7 @@ class VZ_Base extends Controller
 		}
 		else{
 			$this->is_login=true;
-			echo Yii::app()->user->Usertype;
+			
 		}		
 	}
 }

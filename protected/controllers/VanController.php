@@ -4,14 +4,13 @@ class VanController extends VZ_Base
 {
 	public function actionIndex()
 	{
-		echo $this->_themePath;
 		$this->render('index');
 	}
 	public function actionLogin()
 	{
 		if($this->is_login)
 		{
-			echo 'yidenglu';
+			echo 'Already Login!';
 			exit;
 		}
 		$model=new LoginForm;
@@ -24,11 +23,15 @@ class VanController extends VZ_Base
 		// collect user input data
 		if(isset($_POST['LoginForm']))
 		{
+			
+			var_dump ($_POST['LoginForm']);
+			exit;
 			$model->attributes=$_POST['LoginForm'];
 			// validate user input and redirect to the previous page if valid
 			if($model->validate() && $model->login())
 			$this->redirect(Yii::app()->user->returnUrl);
 		}
+		
 		// display the login form
 		$this->render('login',array('model'=>$model));
 	}

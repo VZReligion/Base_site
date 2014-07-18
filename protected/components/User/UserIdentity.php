@@ -5,11 +5,10 @@
  * It contains the authentication method that checks if the provided
  * data can identity the user.
  */
-class UserIdentity extends CUserIdentity
-{
-	protected $_id;
+class UserIdentity extends CUserIdentity{
+	
 	protected $VL_errorMessage;	
-	protected $Usertype;
+	public $user;//userinfo
 	/**
 	 * Authenticates a user.
 	 * The example implementation makes sure if the username and password
@@ -23,7 +22,6 @@ class UserIdentity extends CUserIdentity
 	{
 
 		$record = UserBase::model()->findByAttributes(array('username'=>$this->username));  
- $this->Usertype='user';
 		
 		if($record===null)
 		{
@@ -37,19 +35,24 @@ class UserIdentity extends CUserIdentity
 		}       
 		else
 		{         
-			$this->_id=$record->ID_user;          
+		
+			$this->setUser($record);      
 			$this->setState('title', $record->username);
 			$this->errorCode=self::ERROR_NONE;			
 		}
+		
+		unset($user);
 		return !$this->errorCode;
 		
 	}	
-	public function getId()
+	
+	public function getUser()
 	{
-		return $this->_id;
+		return $this->user;
 	}
-	public function getUsertype()
+	
+	public function setUser(CActiveRecord $user)
 	{
-		return $this->Usertype;
+		$this->user=$user->attributes;
 	}
 }

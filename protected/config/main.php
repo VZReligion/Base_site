@@ -8,12 +8,8 @@
 return array(
 'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
 'name'=>'VZ_basesite',
-'theme'=>'default',  
-// preloading 'log' component
-'preload'=>array('log'),
-
- 'defaultController'=>'Van',
-
+'theme'=>'VZ_Default', 
+'defaultController'=>'Van',
 // autoloading model and component classes
 'import'=>array(
 	'application.models.*',
@@ -36,9 +32,10 @@ return array(
 		),
 // application components
 'components'=>array(
-	'user'=>array(
-			// enable cookie-based authentication
-			'allowAutoLogin'=>true,
+	'user'=>array( //user（用户）组件配置，“user”为组件ID
+			'class'=>'VZ_Userinfo',//使用VZ_Userinfo类
+			'allowAutoLogin'=>true,//允许自动登录
+			'stateKeyPrefix'=>'VZU_', //session前缀
 			),
 		// uncomment the following to enable URLs in path-format
 
