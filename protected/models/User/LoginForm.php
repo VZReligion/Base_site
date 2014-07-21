@@ -10,6 +10,8 @@ class LoginForm extends CFormModel
 	public $username;
 	public $password;
 	public $rememberMe;
+	public $VerrMessage;
+	public $bl_Login=false;
 	private $_identity;
 
 	/**
@@ -21,12 +23,11 @@ class LoginForm extends CFormModel
 	{
 		return array(
 			// username and password are required
-			array('username, password', 'required'),
-			// rememberMe needs to be a boolean
-			array('rememberMe', 'boolean'),
+			array('username, password,rememberMe', 'required'),
+			// rememberMe needs to be a boolean		
 			// password needs to be authenticated
 			array('password', 'authenticate'),
-		);
+			);
 	}
 
 	/**
@@ -36,7 +37,7 @@ class LoginForm extends CFormModel
 	{
 		return array(
 			'rememberMe'=>'Remember me next time',
-		);
+			);
 	}
 
 	/**
@@ -45,12 +46,22 @@ class LoginForm extends CFormModel
 	 */
 	public function authenticate($attribute,$params)
 	{
+		
+		
 		if(!$this->hasErrors())
 		{
 			$this->_identity=new UserIdentity($this->username,$this->password);
+			
 			if(!$this->_identity->authenticate())
-			$this->addError('password',$this->_identity->VL_errorMessage);
+			{		
+				
+				$this->addError('password','Incorrect username or password.');
+				
+				$this->VerrMessage=$this->_identity->VL_errorMessage;
+				
+			}
 		}
+		
 	}
 
 	/**
@@ -58,7 +69,8 @@ class LoginForm extends CFormModel
 	 * @return boolean whether login is successful
 	 */
 	public function login()
-	{
+	{		
+
 		if($this->_identity===null)
 		{
 			$this->_identity=new UserIdentity($this->username,$this->password);
@@ -66,7 +78,8 @@ class LoginForm extends CFormModel
 		}
 		if($this->_identity->errorCode===UserIdentity::ERROR_NONE)
 		{
-			$duration=$this->rememberMe ? 3600*24*30 : 0; // 30 days
+			$this->bl_Login=true;		
+			$duration=$this->rememberMe=='true' ? 3600*24*30 : 0; // 30 days
 			Yii::app()->user->login($this->_identity,$duration);
 			return true;
 		}

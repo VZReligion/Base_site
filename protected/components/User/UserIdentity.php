@@ -7,7 +7,7 @@
  */
 class UserIdentity extends CUserIdentity{
 	
-	protected $VL_errorMessage;	
+	public $VL_errorMessage;	
 	public $user;//userinfo
 	/**
 	 * Authenticates a user.
@@ -39,8 +39,7 @@ class UserIdentity extends CUserIdentity{
 			$this->setUser($record);      
 			$this->setState('title', $record->username);
 			$this->errorCode=self::ERROR_NONE;			
-		}
-		
+		}		
 		unset($user);
 		return !$this->errorCode;
 		

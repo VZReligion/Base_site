@@ -160,44 +160,52 @@ var App = function () {
 
 
 
+//登录处理
+function login() {
+    var host="http://"+window.location.host+"/index.php";
 
-   function login()
-   {
-     
-       //是否记住帐号处理
-    
-       if ($("#L_username").val() == '')
-       {
-           alert('username not NULL！');
-           return;
-       } 	 
-       if ($("#L_password").val() == '')
-       { 
-           alert('password no null！');
-           return;
-       }                    
-       //ajax 请求
-       $.ajax({
-           url: "index.php",
-           type: "POST",
-           dataType: "text",
-           data: {"LoginForm":
-                      {
-                          "username": $("#L_username").val(),
-                          "password": $("#L_password").val()
-                      }},
-           beforeSend: function () {
-               alert(121545);
-           },
-           success: function (data) {      
-               alert(1223);
-           },
-           error: function (XMLHttpRequest, textStatus, errorThrown) {
-             
-              alert(XMLHttpRequest.responseTex);
-                      
-           }
-       });
-      
-   }
+    var remember = false;
+    if ($("#remember").attr("checked")) {
+        remember = true;
+    }
+    if ($("#L_username").val() == '') {
+        alert('username not NULL！');
+        return;
+    }
+    if ($("#L_password").val() == '') {
+        alert('password no null！');
+        return;
+    }
 
+    //ajax 请求
+    $.ajax({
+        url: host+"/Van/login",
+        type: "POST",
+        dataType: "html",
+        data: {
+            "LoginForm":
+                {
+                    "username": $("#L_username").val(),
+                    "password": $("#L_password").val(),
+                    "rememberMe": remember
+                }
+        },
+        beforeSend: function () {
+           
+        },
+        success: function (data) {
+            //发送后处理
+           
+            var _logininfo = eval('(' + data + ')');
+            if (_logininfo.bl_Login) {
+                window.location.href = host;
+            }
+            else {
+                alert(_logininfo.VerrMessage);
+            }
+        },
+        error:function(){
+            alert('An Error In The Web!!');
+        }
+    });
+}
