@@ -1,10 +1,8 @@
-
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <!--[if IE 7]> <html lang="en" class="ie7"> <![endif]-->  
 <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->  
 <!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->  
-<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->  
+<!--[if !IE]><!--> <html lang="zh"> <!--<![endif]-->  
 <head>
     <title>Vanzer Basesite</title>
 
@@ -27,7 +25,7 @@
     <!-- CSS Theme -->    
     <link rel="stylesheet" href="<?php echo $this->_theme->baseUrl;?>/css/themes/default.css" id="style_color" />
     <link rel="stylesheet" href="<?php echo $this->_theme->baseUrl;?>/css/themes/headers/default.css" id="style_color-header-1" />  
-	
+	<script type="text/javascript" src="<?php echo $this->_theme->baseUrl;?>/js/jquery-1.8.2.min.js"></script>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head> 
 
 <body>
@@ -52,12 +50,11 @@
 <div class="top">
     <div class="container">         
         <ul class="loginbar pull-right">
-            <li><i class="icon-globe"></i><a>Languages <i class="icon-sort-up"></i></a>
+            <li><i class="icon-globe"></i><a>Version&Languages <i class="icon-sort-up"></i></a>
                 <ul class="nav-list">
-                    <li class="active"><a href="#">English</a> <i class="icon-ok"></i></li>
-                    <li><a href="#">Spanish</a></li>
-                    <li><a href="#">Russian</a></li>
-                    <li><a href="#">German</a></li>
+                    <li class="active"><a href="#">V0.0.1-En</a> <i class="icon-ok"></i></li>
+                    <li><a href="#">V0.0.1-中文</a></li>
+                   
                 </ul>
             </li>   
             <li class="devider">&nbsp;</li>
@@ -66,8 +63,10 @@
 			<?php if(Yii::app()->user->isGuest)
                     {	
 			?>
-			
-            <li><a href="<?php echo Yii::app()->createUrl('Van/Login');?>" class="login-btn">Login</a></li>   
+	
+            <li><a href="<?php echo Yii::app()->createUrl('Van/Login');?>" class="login-btn">Login</a></li>
+<li class="devider">&nbsp;</li>
+			 <li><a href="<?php echo Yii::app()->createUrl('Van/register');?>" class="login-btn">register</a></li>
 			<?php }
 		else
 			{?>
@@ -89,7 +88,7 @@
     <div class="container"> 
         <!-- Logo -->       
         <div class="logo">                                             
-            <a href="index.html"><img id="logo-header" src="<?php echo $this->_theme->baseUrl;?>/img/VZ_Logo.png" alt="Logo" /></a>
+            <a href="<?php echo Yii::app()->createUrl('');?>""><img id="logo-header" src="<?php echo $this->_theme->baseUrl;?>/img/VZ_Logo.png" alt="Logo" /></a>
         </div><!-- /logo -->        
                                     
         <!-- Menu -->       
@@ -103,102 +102,37 @@
                 <div class="nav-collapse collapse">                                     
                     <ul class="nav top-2">
                         <li class="active">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Home
-                                <b class="caret"></b>                            
+                            <a href="<?php echo Yii::app()->createUrl('');?>" >Home                                      
                             </a>
-                            <ul class="dropdown-menu">
-                                <li class="active"><a href="index.html">Option1: Landing Page</a></li>
-                                <li><a href="page_home.html">Option2: Header Option</a></li>
-                                <li><a href="page_home4.html">Option3: Revolution Slider</a></li>
-                                <li><a href="page_home5.html">Option4: Amazing Content</a></li>
-                                <li><a href="page_home1.html">Option5: Mixed Content</a></li>
-                                <li><a href="page_home2.html">Option6: Content with Sidebar</a></li>
-                                <li><a href="page_home3.html">Option7: Aplle Style Slider</a></li>
-                                <li><a href="page_home_all.html">Home All In One</a></li>
-                            </ul>
+                      
                             <b class="caret-out"></b>                        
                         </li>
                         <li>
-                            <a href="" class="dropdown-toggle" data-toggle="dropdown">Pages
+                            <a href="" class="dropdown-toggle" data-toggle="dropdown">Van_API
                                 <b class="caret"></b>                            
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="page_about.html">About Us</a></li>
-                                <li><a href="page_services.html">Services</a></li>
-                                <li><a href="page_pricing.html">Pricing</a></li>
-                                <li><a href="page_coming_soon.html">Coming Soon</a></li>
-                                <li><a href="page_faq.html">FAQs</a></li>
-                                <li><a href="page_search.html">Search Result</a></li>
-                                <li><a href="page_gallery.html">Gallery</a></li>
-                                <li><a href="page_registration.html">Registration</a></li>
-                                <li><a href="page_login.html">Login</a></li>
-                                <li><a href="page_404.html">404</a></li>
-                                <li><a href="page_clients.html">Clients</a></li>
-                                <li><a href="page_privacy.html">Privacy Policy</a></li>
-                                <li><a href="page_terms.html">Terms of Service</a></li>
-                                <li><a href="page_column_left.html">2 Columns (Left)</a></li>
-                                <li><a href="page_column_right.html">2 Columns (Right)</a></li>
+                                <li><a href="#">TTTTTTT</a></li>
+                                <li><a href="#">TTTTTTTT</a></li>
+                                <li><a href="#">QQQQQQQQQ</a></li>
+                                
                             </ul>
                             <b class="caret-out"></b>                        
                         </li>
+                      
+                       
                         <li>
-                            <a href="" class="dropdown-toggle" data-toggle="dropdown">Features
-                                <b class="caret"></b>                            
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a href="feature_grid.html">Grid Layout</a></li>
-                                <li><a href="feature_typography.html">Typography</a></li>
-                                <li><a href="feature_thumbnail.html">Thumbnails</a></li>
-                                <li><a href="feature_component.html">Components</a></li>
-                                <li><a href="feature_navigation.html">Navigation</a></li>
-                                <li><a href="feature_table.html">Tables</a></li>
-                                <li><a href="feature_form.html">Forms</a></li>
-                                <li><a href="feature_icons.html">Icons</a></li>
-                                <li><a href="feature_button.html">Buttons</a></li>
-                            </ul>
-                            <b class="caret-out"></b>                        
-                        </li>
-                        <li>
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Portfolio
-                                <b class="caret"></b>                            
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a href="portfolio.html">Portfolio</a></li>
-                                <li><a href="portfolio_item.html">Portfolio Item</a></li>
-                                <li><a href="portfolio_2columns.html">Portfolio 2 Columns</a></li>
-                                <li><a href="portfolio_3columns.html">Portfolio 3 Columns</a></li>
-                                <li><a href="portfolio_4columns.html">Portfolio 4 Columns</a></li>
-                            </ul>
-                            <b class="caret-out"></b>                        
-                        </li>
-                        <li>
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Blog
-                                <b class="caret"></b>                            
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a href="blog.html">Blog</a></li>
-                                <li><a href="blog_item.html">Blog Item</a></li>
-                                <li><a href="blog_left_sidebar.html">Blog Left Sidebar</a></li>
-                                <li><a href="blog_item_left_sidebar.html">Blog Item Left Sidebar</a></li>
-                            </ul>
-                            <b class="caret-out"></b>                        
-                        </li>
-                        <li>
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contact
-                                <b class="caret"></b>                            
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a href="page_contact.html">Contact Default</a></li>
-                                <li><a href="page_contact1.html">Contact Boxed Map</a></li>
-                            </ul>
-                            <b class="caret-out"></b>                        
+                            <a href="#" >VZ_Self
+                                
+                            </a>                           
+                                              
                         </li>
                         <li><a class="search"><i class="icon-search search-btn"></i></a></li>                               
                     </ul>
                     <div class="search-open">
                         <div class="input-append">
                             <form />
-                                <input type="text" class="span3" placeholder="Search" />
+                                <input type="text" class="span3" placeholder="VZ_Function  Search" />
                                 <button type="submit" class="btn-u">Go</button>
                             </form>
                         </div>

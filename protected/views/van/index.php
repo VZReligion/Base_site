@@ -1,5 +1,4 @@
 
-
 <!--=== Slider ===-->
 <div class="slider-inner">
     <div id="da-slider" class="da-slider">

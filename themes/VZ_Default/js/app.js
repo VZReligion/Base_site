@@ -195,7 +195,7 @@ function login() {
         },
         success: function (data) {
             //发送后处理
-           
+            alert(data);
             var _logininfo = eval('(' + data + ')');
             if (_logininfo.bl_Login) {
                 window.location.href = host;

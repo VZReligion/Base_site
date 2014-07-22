@@ -4,20 +4,20 @@
  * This is the model class for table "vzdb_user".
  *
  * The followings are the available columns in table 'vzdb_user':
- * @property string $ID_user
+ * @property integer $ID_user
  * @property string $username
  * @property string $password
- * @property integer $point
- * @property string $nickname
- * @property string $profession
- * @property string $sex
  * @property string $e_mail
- * @property integer $age
- * @property string $regtime
+ * @property integer $email_ver
+ * @property integer $tel_num
+ * @property integer $tel_ver
+ * @property integer $point
+ * @property integer $money
+ * @property integer $regtime
  * @property string $regip
- * @property string $logintime
+ * @property integer $logintime
  * @property string $loginip
- * @property string $login_adress
+ * @property string $loginaddress
  */
 class UserBase extends CActiveRecord
 {
@@ -37,16 +37,15 @@ class UserBase extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('username, password, e_mail, age, regip, logintime, loginip', 'required'),
-			array('point, age', 'numerical', 'integerOnly'=>true),
+			array('username, password, e_mail, regtime, regip, logintime', 'required'),
+			array('email_ver, tel_num, tel_ver, point, money, regtime, logintime', 'numerical', 'integerOnly'=>true),
 			array('username, password', 'length', 'max'=>32),
-			array('nickname, profession, e_mail, login_adress', 'length', 'max'=>55),
-			array('sex', 'length', 'max'=>3),
-			array('regtime, logintime', 'length', 'max'=>10),
+			array('e_mail', 'length', 'max'=>55),
 			array('regip, loginip', 'length', 'max'=>20),
+			array('loginaddress', 'length', 'max'=>120),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('ID_user, username, password, point, nickname, profession, sex, e_mail, age, regtime, regip, logintime, loginip, login_adress', 'safe', 'on'=>'search'),
+			array('ID_user, username, password, e_mail, email_ver, tel_num, tel_ver, point, money, regtime, regip, logintime, loginip, loginaddress', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -67,20 +66,20 @@ class UserBase extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'ID_user' => '用户id',
+			'ID_user' => '用户ID',
 			'username' => '用户名',
-			'password' => '密码',
-			'point' => '会员积分',
-			'nickname' => '昵称',
-			'profession' => '职业',
-			'sex' => '性别',
+			'password' => '登录密码',
 			'e_mail' => '邮箱',
-			'age' => '年龄',
+			'email_ver' => '邮箱状态',
+			'tel_num' => '手机号码',
+			'tel_ver' => '手机验证状态',
+			'point' => '会员积分',
+			'money' => '余额',
 			'regtime' => '注册时间',
 			'regip' => '注册IP',
-			'logintime' => '登陆时间',
-			'loginip' => '登陆IP',
-			'login_adress' => 'Login Adress',
+			'logintime' => '登录时间',
+			'loginip' => '登录IP',
+			'loginaddress' => '登录地址',
 		);
 	}
 
@@ -102,20 +101,20 @@ class UserBase extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('ID_user',$this->ID_user,true);
+		$criteria->compare('ID_user',$this->ID_user);
 		$criteria->compare('username',$this->username,true);
 		$criteria->compare('password',$this->password,true);
-		$criteria->compare('point',$this->point);
-		$criteria->compare('nickname',$this->nickname,true);
-		$criteria->compare('profession',$this->profession,true);
-		$criteria->compare('sex',$this->sex,true);
 		$criteria->compare('e_mail',$this->e_mail,true);
-		$criteria->compare('age',$this->age);
-		$criteria->compare('regtime',$this->regtime,true);
+		$criteria->compare('email_ver',$this->email_ver);
+		$criteria->compare('tel_num',$this->tel_num);
+		$criteria->compare('tel_ver',$this->tel_ver);
+		$criteria->compare('point',$this->point);
+		$criteria->compare('money',$this->money);
+		$criteria->compare('regtime',$this->regtime);
 		$criteria->compare('regip',$this->regip,true);
-		$criteria->compare('logintime',$this->logintime,true);
+		$criteria->compare('logintime',$this->logintime);
 		$criteria->compare('loginip',$this->loginip,true);
-		$criteria->compare('login_adress',$this->login_adress,true);
+		$criteria->compare('loginaddress',$this->loginaddress,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

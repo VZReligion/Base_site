@@ -9,6 +9,7 @@ class UserIdentity extends CUserIdentity{
 	
 	public $VL_errorMessage;	
 	public $user;//userinfo
+	
 	/**
 	 * Authenticates a user.
 	 * The example implementation makes sure if the username and password
@@ -20,24 +21,23 @@ class UserIdentity extends CUserIdentity{
 
 	public function authenticate()
 	{
-
-		$record = UserBase::model()->findByAttributes(array('username'=>$this->username));  
 		
-		if($record===null)
+		$VZV_userbase=new VZV_UserBase($this);
+		if(!$VZV_userbase->Ver_username())
 		{
 			$this->VL_errorMessage = 'You enter the username does not exist!--VZ';
 			$this->errorCode=self::ERROR_USERNAME_INVALID;
 		}
-		else if($record->password!==$this->password)
+		else if($VZV_userbase->_VZV_SQL_Model->password!==$this->password)
 		{
 			$this->VL_errorMessage = ' Password is incorrect!--VZ';
 			$this->errorCode=self::ERROR_PASSWORD_INVALID;			
 		}       
 		else
 		{         
-		
-			$this->setUser($record);      
-			$this->setState('title', $record->username);
+			
+			$this->setUser($VZV_userbase->_VZV_SQL_Model);      
+			$this->setState('title', $VZV_userbase->_VZV_SQL_Model->username);
 			$this->errorCode=self::ERROR_NONE;			
 		}		
 		unset($user);

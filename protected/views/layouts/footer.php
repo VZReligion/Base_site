@@ -80,14 +80,14 @@
 	            <p>2013 &copy; Unify. ALL Rights Reserved. <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
 			</div>
 			<div class="span4">	
-				<a href="index.html"><img id="logo-footer" src="<?php echo $this->_theme->baseUrl;?>/img/logo2-default.png" class="pull-right" alt="" /></a>
+				<a href="index.html"><img id="logo-footer" src="<?php echo $this->_theme->baseUrl;?>/img/VZ_Logo.png" class="pull-right" alt="" /></a>
 			</div>
 		</div><!--/row-fluid-->
 	</div><!--/container-->	
 </div><!--/copyright-->	
 <!--=== End Copyright ===-->
 <!-- JS Global Compulsory -->			
-<script type="text/javascript" src="<?php echo $this->_theme->baseUrl;?>/js/jquery-1.8.2.min.js"></script>
+
 <script type="text/javascript" src="<?php echo $this->_theme->baseUrl;?>/js/modernizr.custom.js"></script>		
 <script type="text/javascript" src="<?php echo $this->_theme->baseUrl;?>/plugins/bootstrap/js/bootstrap.min.js"></script>	
 <!-- JS Implementing Plugins -->           

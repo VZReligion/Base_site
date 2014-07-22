@@ -5,9 +5,7 @@
 	<div class="container">
         <h1 class="color-green pull-left">Login</h1>
         <ul class="pull-right breadcrumb">
-            <li><a href="index.html">Home</a> <span class="divider">/</span></li>
-            <li><a href="">Pages</a> <span class="divider">/</span></li>
-            <li class="active">Login</li>
+           <?php echo $breadcrumbs; ?>
         </ul>
     </div><!--/container-->
 </div><!--/breadcrumbs-->
@@ -18,7 +16,7 @@
 	<div class="row-fluid">
         <form class="log-page"  />
 		 
-            <h3>Login to your account</h3>    
+            <h3>Welcome __By:VZ</h3>    
             <div class="input-prepend">
                 <span class="add-on"><i class="icon-user"></i></span>
                 <input id="L_username" class="input-xlarge" type="text" placeholder="Your Username"  />

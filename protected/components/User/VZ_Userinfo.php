@@ -1,5 +1,6 @@
 <?php
-
+//登录后用户信息存储  
+//Yii::app()->user->_userinfo
 class VZ_Userinfo extends CWebUser
 {
 	public function __get($name)
@@ -16,6 +17,7 @@ class VZ_Userinfo extends CWebUser
 	public function login($identity, $duration=0) {
 		$this->setState('__userInfo', $identity->getUser());
 		parent::login($identity, $duration);
+	
 	}
 }
 
