@@ -22,11 +22,9 @@ class VanController extends VZ_Base
 			$model->attributes=$_POST['LoginForm'];
 			// validate user input and redirect to the previous page if valid
 			$model->validate(); 
-			 $model->login();
-			
+			 $model->login();			
 			echo ( json_encode($model));
-			exit;
-				
+			exit;				
 			//$this->redirect(Yii::app()->user->returnUrl);
 		}
 		$breadcrumbs=' <li><a href="index.html">Home</a> <span class="divider">/</span></li>

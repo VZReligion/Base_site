@@ -1,4 +1,3 @@
-
 <!--=== Content Part ===-->
 <div class="body">
 	<div class="breadcrumbs margin-bottom-50">
@@ -44,34 +43,26 @@
 			
 			<!-- CONTENT END -->
     	     <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/themes/VZ_Default/js/VZV_Reg.js"></script>	 
-    <script>
+    <script>	
 	
-	$("#reg_send").attr('disabled',true);
-	
-	function reg_read()
-{ 
- if ($("#reg_term").attr("checked")) {
-       $("#reg_send").attr('disabled',false);
+$("#reg_send").attr('disabled', true);
+
+function reg_read() {
+    if ($("#reg_term").attr("checked")) {
+        $("#reg_send").attr('disabled', false);
     }
-	else
-{
- $("#reg_send").attr('disabled',true);
+    else {
+        $("#reg_send").attr('disabled', true);
+    }
 }
+function Register() {
+    var host = "http://" + window.location.host + "/index.php";
+    if (!CheckReg())
+        return
 
-}
-	
-    function Register()
-    {  
-
-
- var host="http://"+window.location.host+"/index.php";
-    
-   if( !CheckReg())
-        return		
-		
-     //ajax «Î«Û
+    //ajax «Î«Û
     $.ajax({
-        url: host+"/Van/register",
+        url: host + "/Van/register",
         type: "POST",
         dataType: "html",
         data: {
@@ -79,26 +70,24 @@
                 {
                     "username": $("#reg_username").val(),
                     "password": $("#reg_password").val(),
-                    "e_mail": $("#reg_email").val()	
-				
-				}
+                    "e_mail": $("#reg_email").val()
+
+                }
         },
         beforeSend: function () {
-        	alert(121);
+            alert(121);
         },
         success: function (data) {
-		
-        if(data=='NONE')
-        {
-           alert ('Thanks!\nRegister successfully!\nSystem will go to the logon page.\nBy:VZ ');
-           window.location.href=host+"/Van/login";
+
+            if (data == 'NONE') {
+                alert('Thanks!\nRegister successfully!\nSystem will go to the logon page.\nBy:VZ ');
+                window.location.href = host + "/Van/login";
             }
-        else
-        {
-            alert(data);
-        }
+            else {
+                alert(data);
+            }
         },
-		   error:function(){
+        error: function () {
             alert('An Error In The Web!!');
         }
     });

@@ -36,7 +36,7 @@
             <span>Unify is a clean and fully responsive incredible Template.</span>
             <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi  vehicula sem ut volutpat. Ut non libero magna fusce condimentum eleifend enim a feugiat.</p>
         </div>
-        <a href="https://wrapbootstrap.com/theme/unify-responsive-website-template-WB0412697" class="btn-buy hover-effect">Purchase Now</a>
+        <a href="#" class="btn-buy hover-effect">Purchase Now</a>
     </div>
 </div><!--/row-fluid-->
 <!-- End Purchase Block -->

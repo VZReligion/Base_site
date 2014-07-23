@@ -38,10 +38,11 @@
     <div class="theme-heading">Theme Colors</div>
     <ul class="unstyled">
         <li class="theme-default theme-active" data-style="default" data-header="light"></li>
-        <li class="theme-blue" data-style="blue" data-header="light"></li>
+     <!--   <li class="theme-blue" data-style="blue" data-header="light"></li>
         <li class="theme-orange" data-style="orange" data-header="light"></li>
         <li class="theme-red" data-style="red" data-header="light"></li>
         <li class="theme-light" data-style="light" data-header="light"></li>
+		-->
     </ul>
 </div><!--/style-switcher-->
 <!--=== End Style Switcher ===-->    
